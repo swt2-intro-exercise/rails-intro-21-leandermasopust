@@ -13,7 +13,6 @@ This repository contains an application stub of an academic paper management sys
 ### 1) Set up your repository
 
 * Ensure that the issue tracker of your repository is active (i.e. an "Issues" tab is visible). If not, activate it in the `Settings` tab on the GitHub website.
-<img src="./.github/gh_issues_setting.png" alt="drawing" width="600"/>
 
 ### 2) Set up local development environment
 
