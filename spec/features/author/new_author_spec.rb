@@ -14,4 +14,13 @@ require 'rails_helper'
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+
+  it "should have display error when authors last name is invalid" do
+    visit new_author_path
+    fill_in "author[first_name]", with: 'Alan'
+    fill_in "author[first_name]", with: ''
+    fill_in "author[homepage]", with: 'http://wikipedia.de/Alan_Turing'
+    click_button "Save Author"
+    expect(page).to have_text("error")
+  end
 end
