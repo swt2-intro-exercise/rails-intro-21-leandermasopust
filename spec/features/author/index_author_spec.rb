@@ -12,4 +12,18 @@ require 'rails_helper'
         visit authors_url
         expect(page).to have_link 'New', href: new_author_path
     end
+
+    it "should have a link to delete each author" do
+        @author = FactoryBot.create :author
+        visit authors_path
+        expect(page).to have_link 'Delete', href: author_path(@author)
+    end
+
+    it "should delete an author when clicking the delete link" do
+        @author = FactoryBot.create :author
+        visit authors_path
+        click_link("Delete")
+        expect(Author.count).to eq(0)
+    end
+
 end
