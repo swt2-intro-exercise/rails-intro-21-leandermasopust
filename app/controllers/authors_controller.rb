@@ -3,6 +3,20 @@ class AuthorsController < ApplicationController
     @author = Author.new
   end
 
+  def edit 
+    @author = Author.find(params[:id])
+  end
+
+  def update
+    @author = Author.find(params[:id])
+   
+    if @author.update(params.require(:author).permit(:first_name,:last_name,:homepage))
+      redirect_to @author
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @author = Author.new(params.require(:author).permit(:first_name,:last_name,:homepage))
 
